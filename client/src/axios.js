@@ -6,14 +6,17 @@ class Access {
       baseURL:'http://localhost:3001/'
     })
   }
-    getRequest(){
-      return this.request({ method: 'GET', url:'/' })
-        .then(response => console.log(response))
+  getRequest(){
+    return this.request({ method: 'GET', url:'/' })
+      .then(response => console.log(response))
     }
+  purchase(user) {
+    return this.request({method: 'POST', url: '/form', data: user})
+      .then(response => console.log(response))
+  }
 
-
-  signUp(userInfo) {
-    return this.request({method: 'POST', url: '/users', data: userInfo})
+  userInfo(user) {
+    return this.request({method: 'POST', url: '/form', data: user})
       .then((response) => response.data.success)
   }
 }

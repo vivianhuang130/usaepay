@@ -7,6 +7,11 @@ import Form from "./components/Form";
 
 
 class App extends Component {
+
+  state = {
+    purchases : []
+  }
+
   render() {
     Access.getRequest()
     return (
@@ -16,8 +21,7 @@ class App extends Component {
           <Route path='/form' component={Form} />
         </div>
       </Router>
-    );
+    )
   }
 }
-
 export default App;
