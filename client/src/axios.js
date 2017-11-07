@@ -1,9 +1,9 @@
-import axios from 'axios'
+import axios from 'axios';
 
 class Access {
   constructor() {
     this.request = axios.create({
-      baseURL: 'http://localhost:3001/'
+      baseURL:'http://localhost:3001/'
     })
   }
     getRequest(){
@@ -11,6 +11,11 @@ class Access {
         .then(response => console.log(response))
     }
 
+
+  signUp(userInfo) {
+    return this.request({method: 'POST', url: '/users', data: userInfo})
+      .then((response) => response.data.success)
   }
+}
 
 export default new Access()
