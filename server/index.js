@@ -7,8 +7,10 @@ const
   mongoose = require('mongoose'),
   bodyParser = require('body-parser'),
   cors = require('cors'),
+  sha256 = require('sha256'),
   mongoUrl = process.env.MONGO_URL || 'mongodb://localhost/usaepay',
   port = process.env.PORT || 3001
+
 
   mongoose.connect(mongoUrl, (err) => {
   console.log(err || "Connected to MongoDB.")
@@ -21,6 +23,11 @@ app.get('/', (req, res) => {
   res.send('hello')
 })
 
+app.post('/api/form'(req, res) => {
+  User.create(req.body, (err, user) => {
+    res.json(user)
+  })
+})
 
 app.listen(port, (err) => {
   console.log(err || `Server running on ${port}.`)
